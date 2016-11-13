@@ -21,7 +21,7 @@ class EchoServer():
         while True:
             try:
                 msg = yield from socket.recv()
-                yield from socket.send(msg)
+                yield from socket.send_coro(msg)
             except ConnectionClosed:
                 break
 
